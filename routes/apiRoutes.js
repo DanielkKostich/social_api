@@ -47,3 +47,4 @@ router.route('/thoughts/:thoughtId/reactions')
   .delete(removeReaction);
 
 module.exports = router;
+
