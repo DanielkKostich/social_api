@@ -6,7 +6,7 @@ const Thought = require('../models/Thought');
 const thoughtController = {
   async getAllThoughts(req, res) {
     try {
-      const thoughts = await Thought.find().populate('reactions');
+      const thoughts = await Thought.find()
       res.json(thoughts);
     } catch (err) {
       res.status(500).json(err);
@@ -16,7 +16,7 @@ const thoughtController = {
   async getThoughtById(req, res) {
     try {
       const { id } = req.params;
-      const thought = await Thought.findById(id).populate('reactions');
+      const thought = await Thought.findById(id)
       if (!thought) {
         res.status(404).json({ message: 'Thought not found' });
         return;

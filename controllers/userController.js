@@ -4,8 +4,6 @@ const userController = {
   async getAllUsers(req, res) {
     try {
       const users = await User.find()
-        .populate('thoughts')
-        .populate('friends');
       res.json(users);
     } catch (err) {
       res.status(500).json(err);
@@ -16,8 +14,7 @@ const userController = {
     try {
       const { id } = req.params;
       const user = await User.findById(id)
-        .populate('thoughts')
-        .populate('friends');
+       
       if (!user) {
         res.status(404).json({ message: 'User not found' });
         return;
